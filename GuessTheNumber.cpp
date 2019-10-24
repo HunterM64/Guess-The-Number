@@ -14,7 +14,7 @@ int main() {
   randomNumber(number);
 
   cout << "Guess the number (0-100): ";
-  cout << "You have " << guesses << " guesses left."
+  cout << "You have " << guesses << " guesses left.";
   cin >> guess;
   guesses--;
 
@@ -29,7 +29,7 @@ int main() {
     }
     
     cout << "Guess the number (0-100): ";
-    cout << "You have " << guesses << " guesses left."
+    cout << "You have " << guesses << " guesses left.";
     cin >> guess;
     guesses --;
   }
