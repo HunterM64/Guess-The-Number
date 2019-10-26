@@ -1,55 +1,45 @@
 #include <iostream>
 #include <cstdlib>
-#include <time.h>
+#include<time.h>
 using namespace std;
 
-int randomNumber(int &randnumber);
-
 int main() {
-  int number;
-  int guess;
-  int guesses = 20;
-  char temp;
-  
-  randomNumber(number);
+	srand(time(0));
+	int number = rand() % 100;
+	int guess;
+	int guesses = 20;
+	// cout << number;
+	cout << "Guess the number! (0-100)" << endl;
+	cout << "You have " << guesses << " guess(es) left." << endl;
+	cin >> guess;
+	guesses--;
 
-  cout << "Guess the number (0-100): ";
-  cout << "You have " << guesses << " guesses left.";
-  cin >> guess;
-  guesses--;
+	while (guess != number && guesses > 0) {
+		if (guess > number) {
+			cout << "Too high!" << endl;
+		}
+		if (guess < number) {
+			cout << "Too low!" << endl;
+		}
+		
+		cout << "Guess the number! (0-100)" << endl;
+		cout << "You have " << guesses << " guess(es) left." << endl;
+		cin >> guess;
 
-  while(guess != number && guesses > 0) {
-    
-    if(guess > number) {
-      cout << "Too high!" << endl;
-    }
-    
-    else if (guess < number) {
-      cout << "Too low!" << endl;
-    }
-    
-    cout << "Guess the number (0-100): ";
-    cout << "You have " << guesses << " guesses left.";
-    cin >> guess;
-    guesses --;
-  }
-    
-  if (guesses > 0) {
-    cout << "Good job! You guessed it!" << endl;
-  }
-  else {
-    cout << "You did not guess the number..." << endl;
-  }
-  
-  cout << "Press any key and enter to quit..." << endl;
-  cin >> temp;
-  
-  return 0;
-}
+		guesses--;
+	}
 
-int randomNumber(int &randnumber) {
-  int max;
-  max = 101;
-  srand(time(0));
-  randnumber = rand() % max;
+	if (guesses > 0) {
+		cout << "You guessed the number!" << endl;
+	}
+	else {
+		cout << "You didn't guess the number..." << endl;
+	}
+
+	//clear buffer, wait for input to close program
+	cin.clear(); cin.ignore(INT_MAX, '\n');
+	cout << "Press any key to end..." << endl;
+	cin.get();
+
+	return 0;
 }
