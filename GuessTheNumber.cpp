@@ -34,6 +34,7 @@ int main() {
 	}
 	else {
 		cout << "You didn't guess the number..." << endl;
+		cout << "The number was " << number << "." << endl;
 	}
 
 	//clear buffer, wait for input to close program
